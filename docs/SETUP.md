@@ -51,7 +51,21 @@ website, and fills `brand/`. Put in:
 - `brand/logo/`: `wordmark.svg` + `mark.svg`
 - real screenshots of your product when Claude asks for them.
 
-## 6. Make something
+## 6. Make something: the 3 steps
+Watch the [demo video](demo/startup-motion-studio-demo.mp4) first (38 s). Then in Claude Code:
+
+1. **Your website.** Type: `Make a launch film for yourstartup.com`. Claude reads the site for colours, fonts,
+   features, audience and tone, and confirms the brief with you.
+2. **Your inspo + your twist.** Attach or link a video whose style you love, and add anything custom:
+   `Inspo: <link/file>. Show the AI feature, end on our waitlist, 45 seconds, 16:9 and 9:16.`
+   Claude measures its cuts, beats, camera moves and hook, then copies the grammar, never the content.
+3. **Boom.** Claude researches your domain and competitors, writes the script on the beat, shows you style frames and
+   an animatic, builds the film in code, mixes the sound, runs its checks and critics, and hands you the final files.
+
+You approve at each gate. Reply with plain notes ("faster cards", "no voice on the questions"); every note is answered
+with exactly what changed.
+
+More things to ask:
 - "Make a 45-second launch film for our app": `motion-film`
 - "Remake the rhythm of this video for our product" + attach the file: `motion-film` in remake mode
 - "Plan a month of LinkedIn and Instagram posts and make the first week": `social-content`

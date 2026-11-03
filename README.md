@@ -19,8 +19,24 @@ product's screens in code, animates them with real spring physics, adds a voice-
 frames, and stops at every creative decision for you to approve. No video AI, no templates, no subscription. Each
 frame is a pure function of time, so the same code always renders the same film.
 
-![Demo stills](examples/hello-film/stills.jpg)
-*`examples/hello-film`: a 6-second engine demo (open `hello-film.mp4`).*
+## Demo: a launch video in 3 steps
+
+[![Startup Motion Studio demo video: make a motion design launch video in 3 steps with Claude Code](docs/img/demo.gif)](docs/demo/startup-motion-studio-demo.mp4)
+
+*[▶ Watch the full 38-second demo with sound](docs/demo/startup-motion-studio-demo.mp4). It was made with this studio
+itself, in code.*
+
+1. **Give it your website.** Claude reads your brand colours, fonts, features, audience and tone.
+2. **Drop an inspo video and add your twist.** It analyses the cuts, beats, camera moves and hook, then takes your ideas
+   ("end on our waitlist", "show the AI feature").
+3. **Boom.** It does the domain research and competitor analysis, writes a script on the beat, designs, animates,
+   mixes the sound and checks its own work. You approve the brief, script, look, timing and final cut, and get a polished
+   film in every format.
+
+```text
+You:    Make a launch film for yourstartup.com. Inspo: <link or file>. End on our waitlist.
+Claude: (brief → research → script → style frames → animatic → build → checks → final)
+```
 
 ## What you can make
 | | |
