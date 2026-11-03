@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Film preview</title>
+<style>
+html,body{margin:0;background:#000}
+#stage{position:relative;overflow:hidden;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+#stage *{box-sizing:border-box}
+#hud:empty{display:none}#hud{position:fixed;left:8px;bottom:8px;font:12px monospace;color:#fff;background:rgba(0,0,0,.6);padding:4px 8px;border-radius:6px;z-index:999}
+</style></head>
+<body><div id="stage"></div><div id="hud"></div>
+<script>
+  // one config for page + renderer: film.json (fps, w, h, frames, cuts, beats, groups, tokens, fonts, preload, scripts)
+  (function () { const x = new XMLHttpRequest(); x.open('GET', 'film.json', false); x.send(); window.FILM = JSON.parse(x.responseText); })();
+  // brand fonts: film.json "fonts": [{"family": "Inter", "file": "Inter-Regular.woff2", "weight": "400"}, ...] (files in assets/fonts)
+  document.head.insertAdjacentHTML('beforeend', '<style>' + (FILM.fonts || []).map(f =>
+    `@font-face{font-family:'${f.family}';src:url(assets/fonts/${f.file});font-weight:${f.weight || '400'};font-display:block}`).join('') + '</style>');
+  // scripts: engine, UI kit, optional extras (film.json "scripts"), then one file per shot group
+  const scripts = ['core.js', 'ui.js', ...(FILM.scripts || []), ...Object.keys(FILM.groups || { G1: 0 }).map(g => `shots/${g}.js`)];
+  document.write(scripts.map(s => `<script src="${s}"><\/script>`).join(''));
+</script>
+<script>
+(async () => {
+  const st = document.getElementById('stage');
+  st.style.width = CORE.W + 'px'; st.style.height = CORE.H + 'px'; st.style.fontFamily = CORE.T.font; st.style.color = CORE.T.ink;
+  for (const f of FILM.fonts || []) await document.fonts.load(`${f.weight || 400} 40px '${f.family}'`).catch(() => {});
+  await document.fonts.ready;
+  const srcs = FILM.preload || [];
+  await Promise.all(srcs.map(s => new Promise(r => { const i = new Image(); i.onload = i.onerror = () => r(); i.src = 'assets/' + s; })));
+  // warm layer: keep every asset decoded as <img> AND as a CSS mask, so no frame ever captures a not-yet-loaded resource
+  const warm = document.createElement('div');
+  warm.style.cssText = 'position:fixed;left:-5000px;top:0;width:64px;height:64px;overflow:hidden;opacity:.01;pointer-events:none';
+  warm.innerHTML = srcs.map(s => `<img src="assets/${s}" style="width:32px;height:32px"><div style="width:32px;height:32px;background:#000;-webkit-mask:url(assets/${s}) center/contain no-repeat;mask:url(assets/${s}) center/contain no-repeat"></div>`).join('');
+  document.body.appendChild(warm);
+  await Promise.all([...warm.querySelectorAll('img')].map(i => i.decode().catch(() => {})));
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(r, 300))));
+  window.seek(0); window.ready = true;
+  // Preview controls (render never uses these): Space play/pause, arrows frame step (Shift = 15), R replay, ?f=123 deep link
+  if (!navigator.webdriver) {
+    const hud = document.getElementById('hud'); let F = 0, playing = false, t0 = 0, f0 = 0;
+    const show = () => { window.seek(F / CORE.FPS + 1e-6); hud.textContent = `F${F}  ${(F / CORE.FPS).toFixed(2)}s  [space play | arrows frame | R replay]`; };
+    const loop = ts => { if (!playing) return; F = f0 + Math.round((ts - t0) / 1000 * CORE.FPS); if (F >= (FILM.frames || 1e9)) { playing = false; F = FILM.frames - 1; } show(); requestAnimationFrame(loop); };
+    addEventListener('keydown', e => {
+      if (e.code === 'Space') { playing = !playing; if (playing) { t0 = performance.now(); f0 = F; requestAnimationFrame(loop); } }
+      if (e.code === 'ArrowRight') { F += e.shiftKey ? 15 : 1; show(); } if (e.code === 'ArrowLeft') { F = Math.max(0, F - (e.shiftKey ? 15 : 1)); show(); }
+      if (e.code === 'KeyR') { F = 0; show(); }
+    });
+    const q = new URLSearchParams(location.search).get('f'); if (q) F = +q; show();
+  }
+})();
+</script></body></html>

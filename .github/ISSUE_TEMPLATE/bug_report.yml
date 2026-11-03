@@ -1,0 +1,20 @@
+name: Bug report
+description: A render, check, setup or skill step that fails
+labels: [bug]
+body:
+  - type: textarea
+    attributes: {label: What happened, description: "Command you ran + the error (paste the log, e.g. out/<dir>/_*.log)"}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: What you expected}
+  - type: input
+    attributes: {label: OS + Python version, placeholder: "Windows 11, Python 3.12"}
+    validations: {required: true}
+  - type: dropdown
+    attributes: {label: Area, options: [setup, film-engine / render, audio (vo / sfx), check_film, make_image, skill (motion-film), skill (social-content), skill (studio-onboard), docs]}
+  - type: checkboxes
+    attributes:
+      label: Checks
+      options:
+        - label: "The hello-film smoke test passes on my machine (or the bug is in setup itself)"
+        - label: "I removed any API keys or private brand data from what I pasted"

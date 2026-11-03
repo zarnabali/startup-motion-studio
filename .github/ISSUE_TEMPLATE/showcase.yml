@@ -1,0 +1,9 @@
+name: Showcase
+description: Share something you made with the studio
+labels: [showcase]
+body:
+  - type: input
+    attributes: {label: Link to the video or post}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: What you made + one thing you learned, description: "Length, format, which gates helped, what broke"}

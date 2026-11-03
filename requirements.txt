@@ -1,0 +1,11 @@
+playwright
+imageio-ffmpeg
+numpy
+pillow
+librosa
+soundfile
+scipy
+opencv-python-headless
+scenedetect
+yt-dlp
+# optional: kokoro-onnx (voice-over), demucs + torch (stems)

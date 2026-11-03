@@ -1,0 +1,37 @@
+{
+ "fps": 30.0,
+ "rate": "30",
+ "w": 1920,
+ "h": 1080,
+ "frames": 180,
+ "cuts": [],
+ "bpm": null,
+ "beats": [],
+ "groups": {
+  "G1": [
+   0,
+   180
+  ]
+ },
+ "fast": [],
+ "preload": [],
+ "scripts": [],
+ "tokens": {
+  "white": "#ffffff",
+  "paper": "#f7f7f5",
+  "ink": "#0b0b0f",
+  "black": "#000000",
+  "card": "#121212",
+  "card2": "#1c1c1e",
+  "line": "rgba(255,255,255,0.08)",
+  "sub": "#8a8a8a",
+  "o": "#5B5BF7",
+  "oDeep": "#3D3DD9",
+  "oLight": "#8C8CFF",
+  "oTint": "#EEEEFF",
+  "green": "#34C759",
+  "font": "'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+ },
+ "fonts": [],
+ "paletteFilter": false
+}

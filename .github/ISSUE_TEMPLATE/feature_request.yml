@@ -1,0 +1,15 @@
+name: Feature / technique request
+description: A new engine helper, motion technique, post format or skill rule
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes: {label: What you want to make, description: "The film moment or post you couldn't make well. Link a reference if you have one."}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Proposed solution, description: "API sketch, technique recipe, or rule wording"}
+  - type: checkboxes
+    attributes:
+      label: Fit
+      options:
+        - label: "It keeps rendering frame-pure (no timers, randomness or network)"
+        - label: "It works without paid services (or is optional)"

@@ -1,0 +1,12 @@
+# local toolchain
+tools/.venv/
+tools/tts/*.onnx
+tools/tts/*.bin
+__pycache__/
+# your work stays private by default
+projects/
+**/out/
+**/ref/
+*.raw.wav
+# never commit secrets
+.env
