@@ -52,7 +52,7 @@ website, and fills `brand/`. Put in:
 - real screenshots of your product when Claude asks for them.
 
 ## 6. Make something: the 3 steps
-Watch the [demo video](demo/startup-motion-studio-demo.mp4) first (38 s). Then in Claude Code:
+Watch the [demo video](demo/startup-motion-studio-demo.mp4) first (10 s) and the [Wearism launch film](../examples/wearism-launch-film/README.md) (71 s). Then in Claude Code:
 
 1. **Your website.** Type: `Make a launch film for yourstartup.com`. Claude reads the site for colours, fonts,
    features, audience and tone, and confirms the brief with you.

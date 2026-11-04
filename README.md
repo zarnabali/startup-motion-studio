@@ -23,8 +23,9 @@ frame is a pure function of time, so the same code always renders the same film.
 
 [![Startup Motion Studio demo video: make a motion design launch video in 3 steps with Claude Code](docs/img/demo.gif)](docs/demo/startup-motion-studio-demo.mp4)
 
-*[▶ Watch the full 38-second demo with sound](docs/demo/startup-motion-studio-demo.mp4). It was made with this studio
-itself, in code.*
+*[▶ Watch the 10-second explainer with sound](docs/demo/startup-motion-studio-demo.mp4). It was made with this studio
+itself, in code: beat-locked cuts, whip transitions with motion blur, a drop montage and a 3D card collage, set to
+"Tech Ambient" by AleXZavesa (Pixabay licence).*
 
 1. **Give it your website.** Claude reads your brand colours, fonts, features, audience and tone.
 2. **Drop an inspo video and add your twist.** It analyses the cuts, beats, camera moves and hook, then takes your ideas
@@ -37,6 +38,15 @@ itself, in code.*
 You:    Make a launch film for yourstartup.com. Inspo: <link or file>. End on our waitlist.
 Claude: (brief → research → script → style frames → animatic → build → checks → final)
 ```
+
+## Made with it: the Wearism launch film
+
+[![Wearism launch film, a 71-second AI wardrobe app launch video made with Startup Motion Studio](examples/wearism-launch-film/poster.jpg)](examples/wearism-launch-film/wearism-launch-film.mp4)
+
+**[▶ Watch the Wearism launch film (71 s)](examples/wearism-launch-film/wearism-launch-film.mp4)**: a real startup
+launch video for [Wearism](https://thewearism.com), an AI wardrobe app. It has a wordmark split, chip streams,
+macro UI tilts, a drop-flash montage, real-looking photos, a beat-timed voice-over and app screens rebuilt in code.
+[How it was made →](examples/wearism-launch-film/README.md)
 
 ## What you can make
 | | |
